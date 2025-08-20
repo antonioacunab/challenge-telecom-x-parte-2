@@ -13,12 +13,13 @@ El proyecto está organizado de la siguiente manera para facilitar su comprensi�
 ```
 telecom-x-parte-2/
 │
-├── 📄 telecom_churn_prediction.ipynb    # Cuaderno principal con todo el análisis y modelado.
-├── 📊 datos_tratados.csv                # Conjunto de datos limpios y preprocesados.
-├── 🖼️ visualizaciones/                  # Carpeta para guardar los gráficos generados.
-│   ├── correlacion_churn.png
-│   └── tenure_vs_churn.png
-└── 📖 README.md                         # Este archivo.
+├── 📄 TelecomX_Parte2.ipynb        # Cuaderno principal con todo el análisis y modelado.
+├── 📊 datos_tratados.csv           # Conjunto de datos limpios y preprocesados.
+├── 🖼️ coeficientes_rl.png/         # Carpeta para guardar los gráficos generados.
+├── 🖼️ corrs_churn.png/             # Carpeta para guardar los gráficos generados.
+├── 🖼️ importances_rf.png/          # Carpeta para guardar los gráficos generados.
+├── 🖼️ matriz_confusion_rl.png/     # Carpeta para guardar los gráficos generados.
+└── 📖 README.md                    # Este archivo.
 ```
 
 ## 3\. Proceso de Preparación de Datos ⚙️
@@ -49,13 +50,19 @@ La preparación de los datos fue una etapa crucial para asegurar el rendimiento 
 Se eligieron dos modelos con características diferentes para abordar el problema desde distintos ángulos:
 
 1.  **Regresión Logística:** Se seleccionó por su alta interpretabilidad. Sus coeficientes nos permiten entender claramente el impacto (positivo o negativo) de cada variable en la probabilidad de cancelación. Requiere datos estandarizados.
+  ![Correlaciones Modelo de Regresión Logística](https://github.com/antonioacunab/challenge-telecom-x-parte-2/blob/main/coeficientes_rl.png?raw=true)
+  
 2.  **Random Forest:** Se eligió por su alto rendimiento y robustez. Al ser un modelo basado en árboles, no requiere estandarización y es capaz de capturar relaciones no lineales complejas entre las variables.
+  ![Importancias de las variables en modelo Random Forest](https://github.com/antonioacunab/challenge-telecom-x-parte-2/blob/main/importances_rf.png?raw=true)
 
 El modelo final recomendado fue la **Regresión Logística** debido a su superior **Recall (76%)**, lo que lo hace más efectivo para el objetivo de negocio de identificar a la mayor cantidad posible de clientes en riesgo.
+![Matriz de confusión de Regresión Logística](https://github.com/antonioacunab/challenge-telecom-x-parte-2/blob/main/matriz_confusion_rl.png?raw=true)
 
 ## 5\. Insights del Análisis Exploratorio (EDA) ✨
 
 El análisis exploratorio reveló patrones claros y consistentes, confirmados posteriormente por los modelos.
+
+  ![Correlaciones Modelo de Regresión Logística](https://github.com/antonioacunab/challenge-telecom-x-parte-2/blob/main/corrs_churn.png?raw=true)
 
   - **La Antigüedad es Clave:** Los clientes que cancelan tienden a hacerlo en los primeros meses de su contrato. La probabilidad de cancelación disminuye drásticamente a medida que aumenta la antigüedad.
 
